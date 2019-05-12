@@ -74,5 +74,4 @@ public class UIHelper {
         writeBR(1);;
         writeHorizontalBorder();
 	}
-
 }
