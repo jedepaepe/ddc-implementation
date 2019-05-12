@@ -7,12 +7,12 @@ import java.util.Scanner;
 import org.junit.jupiter.api.Test;
 
 import ddc.boundary.DemandeCongeUI;
-import ddc.control.DemandeCongeCtrl;
+import ddc.router.Route;
 
-class DemandeCongeUITest {
+public class DemandeCongeUITest {
 
 	@Test
-	void testRun() {
+	public void testRun() {
 
         // crée un objet du type DemandeCongeUI
         DemandeCongeUI boundary = new DemandeCongeUI();
@@ -24,7 +24,9 @@ class DemandeCongeUITest {
         boundary.control.employeListe.initFake();
         
         // affiche l'interface utilisateur
-        boundary.run();
+        String actual = boundary.run(null).nom;
+        
+        assertEquals(Route.PRINCIPAL_PAGE, actual);
 	}
 
 }

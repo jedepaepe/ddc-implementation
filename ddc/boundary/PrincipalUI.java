@@ -1,20 +1,32 @@
 package ddc.boundary;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import ddc.boundary.helper.UIHelper;
+import ddc.router.Route;
 
-public class PrincipalUI {
-	public UIHelper ui = new UIHelper();
+public class PrincipalUI extends IPageUI {
+	public UIHelper ui = UIHelper.instance;
 	
-	public void run() throws Exception {
+	public Route run(Object bag) {
 		ui.writeTitle("HOME PAGE");
 		ui.writeFormHeader("");
-		Map<String, String> multiChoix = new HashMap<String, String>();
+		// TODO change to SortedMap
+		Map<String, String> multiChoix = new LinkedHashMap<String, String>();
 		multiChoix.put("D", "Demander un congé");
 		multiChoix.put("Q", "Quitter l'application");
-		String option = ui.readMultiChoix("Choississez parmi les options suivantes", multiChoix, 1);
+		try {
+			String choix = ui.readMultiChoix(
+					"Choississez parmi les options suivantes", 
+					multiChoix, 
+					1);
+			return new Route(choix);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return new Route();
 		
 	}
 

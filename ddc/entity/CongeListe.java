@@ -8,6 +8,12 @@ import java.util.ArrayList;
  */
 public class CongeListe {
 	/**
+	 * crée un instance globale de la liste
+	 * TODO: remplacer par le pattern singleton
+	 */
+	public static CongeListe instance = new CongeListe();
+		
+	/**
 	 * liste des congés
 	 * TODO : encapsuler
 	 */
@@ -30,4 +36,20 @@ public class CongeListe {
         // retourne la référence du congé
         return conge;
     }
+
+	public Conge ofId(int index) {
+		return conges.get(index);
+	}
+
+	public void approuve(int index) throws Exception {
+		Conge conge = ofId(index);
+		conge.approuve();
+		
+	}
+
+	public void refuse(int index, String raison) throws Exception {
+		Conge conge = ofId(index);
+		conge.rejette(raison);
+		
+	}
 }

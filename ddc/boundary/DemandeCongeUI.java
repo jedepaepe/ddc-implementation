@@ -4,16 +4,14 @@ import java.util.Scanner;
 
 import ddc.boundary.helper.UIHelper;
 import ddc.control.DemandeCongeCtrl;
-import ddc.control.IPageRoute;
+import ddc.router.Route;
+import ddc.router.Router;
 
 /**
  * couche/layer boundary (Interface Utilisateur - aussi appelé "dialogue")
  * Page/Formulaire de demande de congé
  */
-public class DemandeCongeUI implements IPageRoute {
-	// référence sur la classe UIHelper (TODO => singleton)
-	public UIHelper ui = new UIHelper();
-	
+public class DemandeCongeUI extends IPageUI {	
 	// référence sur le controller
 	public DemandeCongeCtrl control = new DemandeCongeCtrl();
 	
@@ -21,7 +19,7 @@ public class DemandeCongeUI implements IPageRoute {
 	 * démarre l'interface utilisateur
 	 * @param controller : référence vers le controller
 	 */
-    public void run() {
+    public Route run(Object bag) {
     	// affiche le titre
     	ui.writeTitle("DEMANDE DE CONGE");
 
@@ -40,24 +38,12 @@ public class DemandeCongeUI implements IPageRoute {
         
         // envoie la demande de congé au controller (instance de DemandeCongeCtrl)
         control.effectueDdc(matricule, debut);
-    }
-    
-    /**
-     * point d'entrée du programme (méthode de démarrage du programme)
-     * uniquement pour test => TODO mettre dans un test
-     * et ne joue que la demande effectuée par l'employé
-     * note: cette méthode n'apparaît pas sur notre diagramme
-     * @param args 
-     */
-    public static void main(String[] args) {
-
-        // crée un objet du type DemandeCongeUI
-        DemandeCongeUI boundary = new DemandeCongeUI();
-
-    	// initie la liste des congés avec des fake data (pour tester)
-        boundary.control.employeListe.initFake();
-
-        // affiche l'interface utilisateur
-        boundary.run();
+        
+        // TODO show the result
+        
+        // TODO manage user wants to change/return to principal/quit the application
+        
+        // return to principal page
+        return new Route(Route.PRINCIPAL_PAGE);
     }
 }

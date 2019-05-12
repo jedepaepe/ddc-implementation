@@ -13,12 +13,12 @@ public class DemandeCongeCtrl {
 	/**
 	 * liste des employés
 	 */
-    public EmployeListe employeListe = new EmployeListe();
+    public EmployeListe employeListe = EmployeListe.instance;
     
     /**
      * liste des congés
      */
-    public CongeListe congeListe = new CongeListe();
+    public CongeListe congeListe = CongeListe.instance;
     
     // TODO : encapsuler les attributs
     // TODO : implémenter les constructeurs
@@ -66,4 +66,16 @@ public class DemandeCongeCtrl {
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
         System.out.println();
     }
+    
+    public Conge getDdc(int id) {
+    	return congeListe.ofId(id);
+    }
+
+	public void approuveDdc(int index) throws Exception {
+		congeListe.approuve(index);
+	}
+	
+	public void refuseDdc(int index, String raison) throws Exception {
+		congeListe.refuse(index, raison);
+	}
 }

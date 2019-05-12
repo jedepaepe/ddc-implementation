@@ -7,6 +7,12 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class UIHelper {
+	/**
+	 * instance globale du UIHelper
+	 * TODO : remplacer par le pattern singleton
+	 */
+	public static UIHelper instance = new UIHelper();
+	
 	public Scanner scan = new Scanner(System.in);
 	public PrintStream out = System.out;
 	public int width = 60;
@@ -17,13 +23,13 @@ public class UIHelper {
 	public int verticalPaddingNr = 1;
 	public String horizontalBorder = repeat(borderChar, width);
 	public String prompt = ">";
-	
+		
 	public String repeat(String text, int nr) {
 		return String.join("", Collections.nCopies(nr, text));
 	}
 	
 	public void writeBR(int nr) {
-		for(int i = 0; i < nr; ++i) out.println();
+		for(int i = 0; i < nr; ++i) out.println(borderChar + repeat(" ", width - 2 * borderChar.length()) + borderChar);
 	}
 	
 	public void writeHorizontalBorder() {

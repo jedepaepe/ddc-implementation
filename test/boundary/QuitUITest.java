@@ -6,11 +6,11 @@ import org.junit.jupiter.api.Test;
 
 import ddc.boundary.QuitUI;
 
-class QuitUITest {
+public class QuitUITest {
 
 	@Test
-	void test() {
-		new QuitUI().run();
+	public void test() {
+		QuitUI boundary = new QuitUI();
 	}
 
 }

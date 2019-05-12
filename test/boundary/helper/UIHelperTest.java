@@ -14,69 +14,69 @@ import ddc.boundary.helper.UIHelper;
 class UIHelperTest {
 	
 	@Test
-	void testRepeat() {
+	public void testRepeat() {
 		String expected = "ababab";
-		String actual = new UIHelper().repeat("ab", 3);
+		String actual = UIHelper.instance.repeat("ab", 3);
 		assertEquals(expected, actual);
 	}
 	
 	@Test
-	void testWriteHorizontalBorder() {
+	public void testWriteHorizontalBorder() {
 		System.out.println("\n\n\n> test of writeHorizontalBorder\n");
-		new UIHelper().writeHorizontalBorder();
+		UIHelper.instance.writeHorizontalBorder();
 	}
 	
 	@Test
-	void testWriteTextCenterWith() {
+	public void testWriteTextCenterWith() {
 		System.out.println("\n\n\n> test of writeTextCenterWith\n");
-		new UIHelper().writeTextCenterWith("TEXT-CENTER-WITH", 1);
+		UIHelper.instance.writeTextCenterWith("TEXT-CENTER-WITH", 1);
 	}
 	
 	@Test
-	void testWriteTextLeft() {
+	public void testWriteTextLeft() {
 		System.out.println("\n\n\n> test of writeTextLeft");
-		new UIHelper().writeTextLeft("text-left");
+		UIHelper.instance.writeTextLeft("text-left");
 	}
 	
 	@Test
-	void testWriteTitle() {
+	public void testWriteTitle() {
 		System.out.println("\n\n\n> test of WriteTitle\n");
-		new UIHelper().writeTitle("TITLE");
+		UIHelper.instance.writeTitle("TITLE");
 	}
 	
 	@Test
-	void testWriteFormHeader() {
+	public void testWriteFormHeader() {
 		System.out.println("\n\n\n> test of writeFormHeader\n");
-		new UIHelper().writeFormHeader("form-header");
+		UIHelper.instance.writeFormHeader("form-header");
 	}
 	
 	@Test
-	void testWriteInputLabel() {
+	public void testWriteInputLabel() {
 		System.out.println("\n\n\n> test writeInputLabel\n");
-		new UIHelper().writeInputLabel("label", 1);
+		UIHelper.instance.writeInputLabel("label", 1);
 	}
 	
 	@Test
-	void testReadInput() {
+	public void testReadInput() {
 		System.out.println("\n\n\n> test of readInput\n");
 		String expected = "input-text";
-		UIHelper ui = new UIHelper();
+		UIHelper ui = UIHelper.instance;
 		ui.scan = new Scanner(expected);
 		String actual = ui.readInput("label");
 		assertEquals(expected, actual);
 	}
 	
 	@Test
-	void testWriteFooter() {
+	public void testWriteFooter() {
 		System.out.println("\n\n\n> test of writeFooter\n");
-		new UIHelper().writeFooter();
+		UIHelper.instance.writeFooter();
 	}
 	
 	@Test
-	void testReadMultiChoix() throws Exception {
+	public void testReadMultiChoix() throws Exception {
 		System.out.println("\n\n\n> test of readMultiChoix\n");
 		String expected = "C";
-		UIHelper ui = new UIHelper();
+		UIHelper ui = UIHelper.instance;
 		ui.scan = new Scanner("C");
 		Map<String, String> multiChoix = new LinkedHashMap<String, String>();
 		multiChoix.put("A", "choix a");

@@ -7,6 +7,15 @@ import java.util.ArrayList;
  * Liste des employées
  */
 public class EmployeListe {
+	/**
+	 * instance globale de EmployeListe
+	 * TODO : remplacer par le pattern singleton
+	 */
+	public static EmployeListe instance = new EmployeListe();
+	
+	/**
+	 * liste des employé
+	 */
     public ArrayList<Employe> employes = new ArrayList<>();
 
     /**
