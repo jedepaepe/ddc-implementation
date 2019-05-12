@@ -36,9 +36,9 @@ public class UIHelper {
 	public void writeTextCenterWith(String text, int padding) {
 		int leftLength = (int) Math.ceil(1. * (width - text.length() - 2 * padding) / 2);
 		int rightLength = (int) Math.floor(1. * (width - text.length() - 2 * padding) / 2);
-		String leftString = String.join("", Collections.nCopies(leftLength, borderChar));
-		String rightString = String.join("", Collections.nCopies(rightLength, borderChar));
-		String paddingString = String.join("", Collections.nCopies(padding, " "));
+		String leftString = repeat(borderChar, leftLength);
+		String rightString = repeat(borderChar, rightLength);
+		String paddingString = repeat(" ", padding);
 		out.println(leftString + paddingString + text + paddingString + rightString);
 	}
 
