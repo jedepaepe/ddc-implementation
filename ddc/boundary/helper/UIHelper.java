@@ -3,6 +3,7 @@ package ddc.boundary.helper;
 import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Map;
 import java.util.Scanner;
 
 public class UIHelper {
@@ -68,6 +69,20 @@ public class UIHelper {
         writeInputLabel(label, 1);
         String string = scan.nextLine();
         return string;
+	}
+	
+	public String readMultiChoix(String label, Map<String, String> choixMap, int padding) throws Exception {
+		writeTextLeft(label);
+		for(Map.Entry<String, String> choix : choixMap.entrySet()) {
+			writeTextLeft(choix.getValue() + " > " + choix.getKey());
+		}
+		writeInputLabel("", 1);
+		String choix = scan.nextLine();
+		
+		// validation
+		if(choixMap.containsKey(choix)) return choix;
+		// TODO gestion de l'erreur
+		else throw new Exception("choix invalide");
 	}
 	
 	public void writeFooter() {

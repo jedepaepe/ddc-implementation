@@ -4,20 +4,24 @@ import java.util.Scanner;
 
 import ddc.boundary.helper.UIHelper;
 import ddc.control.DemandeCongeCtrl;
+import ddc.control.IPageRoute;
 
 /**
  * couche/layer boundary (Interface Utilisateur - aussi appelé "dialogue")
  * Page/Formulaire de demande de congé
  */
-public class DemandeCongeUI {
+public class DemandeCongeUI implements IPageRoute {
 	// référence sur la classe UIHelper (TODO => singleton)
 	public UIHelper ui = new UIHelper();
+	
+	// référence sur le controller
+	public DemandeCongeCtrl control = new DemandeCongeCtrl();
 	
 	/**
 	 * démarre l'interface utilisateur
 	 * @param controller : référence vers le controller
 	 */
-    public void run(DemandeCongeCtrl controller) {
+    public void run() {
     	// affiche le titre
     	ui.writeTitle("DEMANDE DE CONGE");
 
@@ -35,7 +39,7 @@ public class DemandeCongeUI {
         ui.writeFooter();
         
         // envoie la demande de congé au controller (instance de DemandeCongeCtrl)
-        controller.effectueDdc(matricule, debut);
+        control.effectueDdc(matricule, debut);
     }
     
     /**
@@ -46,16 +50,14 @@ public class DemandeCongeUI {
      * @param args 
      */
     public static void main(String[] args) {
-        // crée un objet du type 
-    	DemandeCongeCtrl control = new DemandeCongeCtrl();
-    	
-    	// initie la liste des congés avec des fake data (pour tester)
-        control.employeListe.initFake();
 
         // crée un objet du type DemandeCongeUI
         DemandeCongeUI boundary = new DemandeCongeUI();
-        
+
+    	// initie la liste des congés avec des fake data (pour tester)
+        boundary.control.employeListe.initFake();
+
         // affiche l'interface utilisateur
-        boundary.run(control);
+        boundary.run();
     }
 }

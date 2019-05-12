@@ -2,6 +2,8 @@ package test.boundary.helper;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 import org.junit.Before;
@@ -68,5 +70,20 @@ class UIHelperTest {
 	void testWriteFooter() {
 		System.out.println("\n\n\n> test of writeFooter\n");
 		new UIHelper().writeFooter();
+	}
+	
+	@Test
+	void testReadMultiChoix() throws Exception {
+		System.out.println("\n\n\n> test of readMultiChoix\n");
+		String expected = "C";
+		UIHelper ui = new UIHelper();
+		ui.scan = new Scanner("C");
+		Map<String, String> multiChoix = new LinkedHashMap<String, String>();
+		multiChoix.put("A", "choix a");
+		multiChoix.put("B", "choix b");
+		multiChoix.put("C", "choix c");
+		multiChoix.put("D", "choix d");
+		String actual = ui.readMultiChoix("Choississez parmi les options suivantes", multiChoix, 1);
+		assertEquals(expected, actual);
 	}
 }
