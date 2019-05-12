@@ -10,15 +10,14 @@ import ddc.control.DemandeCongeCtrl;
  * Page/Formulaire de demande de congé
  */
 public class DemandeCongeUI {
+	// référence sur la classe UIHelper (TODO => singleton)
+	public UIHelper ui = new UIHelper();
 	
 	/**
 	 * démarre l'interface utilisateur
 	 * @param controller : référence vers le controller
 	 */
     public void run(DemandeCongeCtrl controller) {
-    	// instancie un nouveau UIHelper
-    	UIHelper ui = new UIHelper();
-    	
     	// affiche le titre
     	ui.writeTitle("DEMANDE DE CONGE");
 

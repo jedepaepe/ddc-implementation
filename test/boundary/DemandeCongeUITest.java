@@ -2,6 +2,8 @@ package test.boundary;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Scanner;
+
 import org.junit.jupiter.api.Test;
 
 import ddc.boundary.DemandeCongeUI;
@@ -19,6 +21,9 @@ class DemandeCongeUITest {
 
         // crée un objet du type DemandeCongeUI
         DemandeCongeUI boundary = new DemandeCongeUI();
+        
+        // changer le scanner pour le test
+        boundary.ui.scan = new Scanner("B\n2019-08-01");
         
         // affiche l'interface utilisateur
         boundary.run(control);
