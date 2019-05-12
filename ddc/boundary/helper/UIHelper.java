@@ -23,7 +23,12 @@ public class UIHelper {
 	public int verticalPaddingNr = 1;
 	public String horizontalBorder = repeat(borderChar, width);
 	public String prompt = ">";
-		
+	
+	public void writeException(Exception ex) {
+		writeTextLeft(ex.getMessage());
+		ex.printStackTrace(out);		
+	}
+	
 	public String repeat(String text, int nr) {
 		return String.join("", Collections.nCopies(nr, text));
 	}
@@ -55,6 +60,7 @@ public class UIHelper {
 	 * @param title est le titre de la page
 	 */
 	public void writeTitle(String title) {
+		writeHorizontalBorder();
 		writeHorizontalBorder();
 		writeBR(1);
 		writeTextCenterWith(title, 1);
@@ -93,6 +99,7 @@ public class UIHelper {
 	
 	public void writeFooter() {
         writeBR(1);;
+        writeHorizontalBorder();
         writeHorizontalBorder();
 	}
 }

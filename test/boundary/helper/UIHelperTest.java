@@ -86,4 +86,18 @@ class UIHelperTest {
 		String actual = ui.readMultiChoix("Choississez parmi les options suivantes", multiChoix, 1);
 		assertEquals(expected, actual);
 	}
+	
+	@Test
+	public void TestWriteException() {
+		System.out.println("\n\n\n> test of readMultiChoix\n");
+		Exception fex = new Exception("test");
+		int zero = 0;
+		try {
+			int bug = 10 / zero;
+		} catch(Exception ex) {
+			fex = ex;
+		}
+		UIHelper.instance.writeException(fex);
+		
+	}
 }

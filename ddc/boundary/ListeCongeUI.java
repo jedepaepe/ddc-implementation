@@ -33,7 +33,7 @@ public class ListeCongeUI extends IPageUI {
 		} else {
 			ui.writeFormHeader("pas de congés dans la liste");
 		}
-		return new Route();
+		return new Route(Route.PRINCIPAL_PAGE);
 	}
 
 }

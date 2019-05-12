@@ -3,6 +3,7 @@ package ddc.router;
 public class Route {
 	public static final String APPROBATION_CONGE_PAGE = "A";
 	public static final String DEMANDE_CONGE_PAGE = "D";
+	public static final String EXCEPTION_PAGE = "E";
 	public static final String LISTE_CONGE_PAGE = "L";
 	public static final String PRINCIPAL_PAGE = "P";
 	public static final String QUIT_PAGE = "Q";	

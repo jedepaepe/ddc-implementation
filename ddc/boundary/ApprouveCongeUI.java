@@ -35,7 +35,7 @@ public class ApprouveCongeUI extends IPageUI {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		ui.writeFooter();
 		
 		return new Route(Route.LISTE_CONGE_PAGE);
 	}
