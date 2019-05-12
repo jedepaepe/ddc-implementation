@@ -2,6 +2,8 @@ package test.boundary.helper;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Scanner;
+
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
@@ -39,5 +41,26 @@ class UIHelperTest {
 		System.out.println("\n\n\n> test of WriteTitle\n");
 		new UIHelper().writeTitle("TITLE");
 	}
-
+	
+	@Test
+	void testWriteFormHeader() {
+		System.out.println("\n\n\n> test of writeFormHeader\n");
+		new UIHelper().writeFormHeader("form-header");
+	}
+	
+	@Test
+	void testReadInput() {
+		System.out.println("\n\n\n> test of readInput\n");
+		String expected = "input-text";
+		UIHelper ui = new UIHelper();
+		ui.scan = new Scanner(expected);
+		String actual = ui.readInput("label");
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	void testWriteFooter() {
+		System.out.println("\n\n\n> test of writeFooter\n");
+		new UIHelper().writeFooter();
+	}
 }

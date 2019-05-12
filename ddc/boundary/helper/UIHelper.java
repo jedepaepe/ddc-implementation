@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.Scanner;
 
 public class UIHelper {
-	Scanner scan = new Scanner(System.in);
+	public Scanner scan = new Scanner(System.in);
 	public PrintStream out = System.out;
 	public int width = 60;
 	public String borderChar = "+";
@@ -66,8 +66,8 @@ public class UIHelper {
 	}
 	
 	public void writeFooter() {
-        System.out.println("+");
-        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+        writeBR(1);;
+        writeHorizontalBorder();
 	}
 
 }
