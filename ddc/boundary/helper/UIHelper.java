@@ -15,6 +15,7 @@ public class UIHelper {
 	public String horizontalPadding = repeat(" ", horizontalPaddingWidth);
 	public int verticalPaddingNr = 1;
 	public String horizontalBorder = repeat(borderChar, width);
+	public String prompt = ">";
 	
 	public String repeat(String text, int nr) {
 		return String.join("", Collections.nCopies(nr, text));
@@ -59,8 +60,12 @@ public class UIHelper {
         writeTextLeft(title);
 	}
 	
+	public void writeInputLabel(String label, int padding) {
+		out.print(borderChar + repeat(" ", padding) + label + prompt + " ");
+	}
+	
 	public String readInput(String label) {
-        writeTextLeft(label);
+        writeInputLabel(label, 1);
         String string = scan.nextLine();
         return string;
 	}

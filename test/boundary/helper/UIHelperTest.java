@@ -49,6 +49,12 @@ class UIHelperTest {
 	}
 	
 	@Test
+	void testWriteInputLabel() {
+		System.out.println("\n\n\n> test writeInputLabel\n");
+		new UIHelper().writeInputLabel("label", 1);
+	}
+	
+	@Test
 	void testReadInput() {
 		System.out.println("\n\n\n> test of readInput\n");
 		String expected = "input-text";

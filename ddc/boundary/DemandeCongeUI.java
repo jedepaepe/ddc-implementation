@@ -2,6 +2,7 @@ package ddc.boundary;
 
 import java.util.Scanner;
 
+import ddc.boundary.helper.UIHelper;
 import ddc.control.DemandeCongeCtrl;
 
 /**
@@ -15,30 +16,24 @@ public class DemandeCongeUI {
 	 * @param controller : référence vers le controller
 	 */
     public void run(DemandeCongeCtrl controller) {
-    	// affiche l'entête de la page
-        Scanner scan = new Scanner(System.in);
-        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-        System.out.println("+");
-        System.out.println("++++++++++++ DEMANDE DE CONGE ++++++++++++++++++++++++");
-        System.out.println("+");
-        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-        
-        // affiche le formulaire 
-        System.out.println("+");
-        System.out.println("+   Veullez entrer les données nécessaires à la demande");
+    	// instancie un nouveau UIHelper
+    	UIHelper ui = new UIHelper();
+    	
+    	// affiche le titre
+    	ui.writeTitle("DEMANDE DE CONGE");
+
+    	// affiche le formulaire 
+        ui.writeFormHeader("Veullez entrer les données nécessaires à la demande");
 
         // demande d'encoder le matricule
-        System.out.print("+   matricule: ");
-        String matricule = scan.nextLine();
+        String matricule = ui.readInput("matricule");
         // TODO validation
         
-        // demande d'encoder la date de déut de congé
-        System.out.print("+   début: ");
-        String debut = scan.nextLine();
+        // demande d'encoder la date de début de congé
+        String debut = ui.readInput("début");
         // TODO validation et conversion en LocalDate
         
-        System.out.println("+");
-        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+        ui.writeFooter();
         
         // envoie la demande de congé au controller (instance de DemandeCongeCtrl)
         controller.effectueDdc(matricule, debut);
