@@ -1,6 +1,8 @@
-package ddc;
+package ddc.boundary;
 
 import java.util.Scanner;
+
+import ddc.control.DemandeCongeCtrl;
 
 /**
  * couche/layer boundary (Interface Utilisateur - aussi appelé "dialogue")

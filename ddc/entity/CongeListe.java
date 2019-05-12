@@ -1,4 +1,4 @@
-package ddc;
+package ddc.entity;
 
 import java.util.ArrayList;
 

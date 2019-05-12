@@ -1,4 +1,4 @@
-package ddc;
+package ddc.entity;
 
 /**
  * couche/Layer entité/entity (aussi appelé "domain", "business")

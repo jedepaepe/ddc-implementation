@@ -1,4 +1,9 @@
-package ddc;
+package ddc.control;
+
+import ddc.entity.Conge;
+import ddc.entity.CongeListe;
+import ddc.entity.Employe;
+import ddc.entity.EmployeListe;
 
 /**
  * couche/layer Control (aussi appelé Controller)
