@@ -26,7 +26,7 @@ public class DemandeCongeCtrl {
      * 		.) demandeur est null (pas d'employé avec le matricule)
      *		.) demandeur.manager est null (l'employé n'a pas de manager)
      */
-    public void demandeConge(String matricule, String debut) {
+    public void effectueDdc(String matricule, String debut) {
         // trouver le demandeur dans la liste des employés
         Employe demandeur = employeListe.ofMatricule(matricule);
         

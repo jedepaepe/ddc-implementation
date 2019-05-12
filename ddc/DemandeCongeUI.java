@@ -39,7 +39,7 @@ public class DemandeCongeUI {
         System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         
         // envoie la demande de congé au controller (instance de DemandeCongeCtrl)
-        controller.demandeConge(matricule, debut);
+        controller.effectueDdc(matricule, debut);
     }
     
     /**
